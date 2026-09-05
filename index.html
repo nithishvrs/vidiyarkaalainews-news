@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images/news-dp.jpg">
+  <link rel="stylesheet" href="style.css">
+  <title> Vidiyarkaalai News</title>
+</head>
+<body>
+  
+  <div class="topbar">
+    <div>Monday, 29 June 2026</div>
+    <div class="top-icons">
+      <span>🔍</span>
+      <span>🌙</span>
+      <span onclick="googleLogin()">👤</span>
+      <img id="profile-image" src="" alt="Profile" style="width:40px; height:40px; border-radius:50%; display:none;">
+    </div>
+  </div>
+
+  <div class="logo-banner">
+    <div class="logo"><img src="images/news-logo.jpg" alt="News Logo" width="500" height="60"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#">Home</a>
+      <a href="#">Live TV</a>
+      <a href="#">Tamil Nadu</a>
+      <a href="#">India</a>
+      <a href="#">World</a>
+      <a href="#">Politics</a>
+      <a href="#">Sports</a>
+      <a href="#">Technology</a>
+      <a href="#">More</a>
+    </div>
+  </nav>
+
+  <div class="breaking">
+    <div class="breaking-label">Breaking News</div>
+    <div class="breaking-text">
+      <marquee behavior="scroll" direction="left">
+        தமிழ்நாடு மற்றும் உலக அளவில் இப்போது வெளியாகி இருக்கும் முக்கியச் செய்திகள்: Nithishuuhh !!! 
+      </marquee>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="main-news">
+      <img src="images/news-main.jpg" alt="Main News Story niths">
+      <div class="category">Politics</div>
+      <h1>முதல்வர் விஜய்க்கு புது பிரச்னை ஆட்சி கவிழும் அபாயம்</h1>
+      <div class="meta"> June 29, 2026</div>
+      <p>
+        மதிமுகவின் 2 MLA-க்களை முதல்வர் விஜய் ராஜினாமா செய்யக் கூறியதாக வைகோ பேசியது தவெக அரசுக்கு பெரும் தலைவலியாக மாறியுள்ளது.
+        வைகோவின் பேட்டியை ஆதாரமாக வைத்து கவர்னரிடம் மனு கொடுக்க அதிமுக திட்டமிட்டுள்ளதாம். 
+        ஏற்கெனவே அமமுக MLA-வை குதிரை பேரம் நடத்தி விலைக்கு வாங்கியதாக ஒரு புகார் மனு கவர்னரிடம் நிலுவையில் உள்ளது. 
+        புகாரில் குற்றச்சாட்டு நிரூபிக்கப்பட்டால் ஆட்சியே கவிழும் அபாயம் கூட உள்ளது.
+      </p>
+    </section>
+
+    <aside class="sidebar">
+      <h2>Latest Stories</h2>
+
+      <div class="story-card">
+        <img src="images/story-card.jpeg" alt="Story 1">
+        <div class="story-content">
+          <h3>சாதனை படைத்த தமிழக வீராங்கனை துளசிமதி</h3>
+          <p>Sports | June 29, 2026</p>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <img src="images/story-card2.jpeg" alt="Story 2">
+        <div class="story-content">
+          <h3>கட்டணம் இருமடங்கு உயர்வு - தமிழக அரசு அறிவித்தது</h3>
+          <p>Government | June 29, 2026</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    © 2026 News Website. All rights reserved.
+  </footer>
+
+
+
+
+  
+  <!-- <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+
+
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBbiHGw6y5WmBYN7eOcqe1HR-LLRLFpa10",
+  authDomain: "vidiyarkaalai-news.firebaseapp.com",
+  projectId: "vidiyarkaalai-news",
+  storageBucket: "vidiyarkaalai-news.firebasestorage.app",
+  messagingSenderId: "480538471495",
+  appId: "1:480538471495:web:05068fffe2696875cf5562",
+  measurementId: "G-EYXVW6FRSC"
+};
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.googleLogin = function() {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log("Login Successful:", result.user);
+      }).catch((error) => {
+        console.error("Login Error:", error);
+      });
+  };
+  
+  // Firebase லாகின் ஆனவுடன், user தகவலைப் பெற:
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    // User லாகின் செய்துவிட்டார்
+    const profilePicUrl = user.photoURL; // கூகுள் அக்கவுண்டிலிருந்து படத்தைப் பெறுதல்
+
+    // ஹெடரில் இருக்கும் image டேக்கைத் தேர்ந்தெடுத்து src-ஐ மாற்றவும்
+    const profileImg = document.getElementById('profile-image'); 
+    if (profileImg) {
+      profileImg.src = profilePicUrl;
+      profileImg.style.display = 'block'; // படத்தை மறைத்திருந்தால் காண்பிக்க
+    }
+  } else {
+    // User லாகின் செய்யவில்லை
+  }
+});
+</script> -->
+
+</body>
+</html>1

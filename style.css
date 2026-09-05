@@ -1,0 +1,231 @@
+ *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Topbar styling */
+    .topbar {
+      background: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    .top-icons span {
+      margin-left: 12px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Logo Banner styling (Fixed class name mismatch) */
+    .logo-banner {
+      background: white;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo img { 
+      max-width: 100%; /* மொபைலில் படம் திரையை விட்டு வெளியே போகாமல் தடுக்க */
+      height: auto;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px 20px;
+      font-weight: bold;
+    }
+
+    .nav-container a:hover {
+      color: #b30000;
+    }
+
+    /* Breaking News styling */
+    .breaking {
+      display: flex;
+      align-items: center;
+      background: #8b0000;
+      color: white;
+      overflow: hidden;
+    }
+
+    .breaking-label {
+      background: #b30000;
+      padding: 12px 20px;
+      font-size: 24px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .breaking-text {
+      padding: 0 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .breaking-text marquee {
+      font-size: 20px;
+    }
+
+    /* Layout Grid Layout */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr; /* டெஸ்க்டாப்பில் 2:1 என்ற விகிதத்தில் பிரியும் */
+      gap: 25px;
+      padding: 0 20px;
+    }
+
+    .main-news {
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .main-news img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .category {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .main-news h1 {
+      font-size: 32px;
+      line-height: 1.3;
+      margin-bottom: 15px;
+    }
+
+    .meta {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .main-news p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar h2 {
+      background: white;
+      padding: 12px 15px;
+      border-left: 5px solid #b30000;
+      font-size: 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .story-card {
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .story-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .story-content {
+      padding: 12px;
+    }
+
+    .story-content h3 {
+      font-size: 18px;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .story-content p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    /* Mobile and Tablet Responsive Styles */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr; /* மொபைலில் சைட்பார் கீழே சென்று ஒற்றை வரிசையாக மாறும் */
+        margin: 15px auto;
+        padding: 0 15px;
+      }
+
+      .nav-container {
+        gap: 10px;
+        padding: 10px;
+        font-size: 14px;
+        justify-content: flex-start; /* மொபைலில் மெனுக்கள் இடப்பக்கம் சீரமைக்கப்படும் */
+        overflow-x: auto; /* மெனு அதிகமாக இருந்தால் மொபைலில் ஸ்வைப் செய்யலாம் */
+        white-space: nowrap;
+      }
+
+      .main-news {
+        padding: 15px;
+      }
+
+      .main-news h1 {
+        font-size: 24px;
+      }
+
+      .breaking-label {
+        font-size: 18px;
+        padding: 10px 15px;
+      }
+
+      .breaking-text marquee {
+        font-size: 16px;
+      }
+    }
