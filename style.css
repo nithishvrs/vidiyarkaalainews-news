@@ -35,7 +35,7 @@
     /* Logo Banner styling (Fixed class name mismatch) */
     .logo-banner {
       background: white;
-      padding: 5px;
+      padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
