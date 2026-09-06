@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images/news-dp.jpg">
+  <title>Vidiyarkaalai News</title>
+  <style>
+    :root {
+      --primary-red: #a80000;
+      --text-dark: #111111;
+      --text-gray: #666666;
+      --border-color: #eaeaea;
+      --bg-light: #f9f9f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, 'Latha', 'Tamil Sangam MN', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* Topbar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      color: #fff;
+      padding: 8px 20px;
+      font-size: 13px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+    }
+
+    .social-icons img {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+
+    /* Logo Banner */
+    .logo-banner {
+      text-align: center;
+      padding: 15px 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Navigation Bar */
+    .main-navbar {
+      display: flex;
+      align-items: center;
+      background: #588ed6;
+      padding: 0 20px;
+      overflow-x: auto;
+    }
+
+    .nav-icons-group {
+      display: flex;
+      gap: 10px;
+      margin-right: 15px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .home-btn {
+      fill: #fff;
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      white-space: nowrap;
+    }
+
+    .nav-item {
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 15px;
+      font-size: 15px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .nav-item:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Breaking Bar */
+    .breaking-bar {
+      display: flex;
+      align-items: center;
+      background: #757474;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .breaking-label {
+      background: var(--primary-red);
+      color: #fff;
+      padding: 8px 15px;
+      font-weight: bold;
+      font-size: 14px;
+      font-style:oblique;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .ticker-content {
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 25s linear infinite;
+      font-size: 14px;
+      color: #fdfbfb;
+    }
+
+    @keyframes ticker {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1140px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    /* Category Section */
+    .category-section {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+      border-bottom: 2px solid var(--primary-red);
+      padding-bottom: 6px;
+    }
+
+    /* Grid Layouts */
+    .top-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .two-column-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    /* Cards */
+    .news-card {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .thumb-wrapper {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background: #eee;
+    }
+
+    .thumb-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cat-tag {
+      font-size: 12px;
+      color: var(--text-gray);
+      padding: 10px 12px 4px;
+      font-weight: bold;
+    }
+
+    .card-headline {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.4;
+      color: var(--text-dark);
+      text-decoration: none;
+      padding: 0 12px 10px;
+    }
+
+    .card-headline:hover {
+      color: var(--primary-red);
+    }
+
+    .meta-line {
+      font-size: 11px;
+      color: var(--text-gray);
+      padding: 0 12px 12px;
+      margin-top: auto;
+    }
+
+    /* Article Detail Page View */
+    #detail-view {
+      display: none;
+      background: #fff;
+      padding: 30px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary-red);
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .back-btn:hover {
+      background-color: #800000;
+    }
+
+    .detail-title {
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .detail-timestamp {
+      font-size: 13px;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #000;
+      margin-bottom: 20px;
+    }
+
+    .hero-bg-blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(12px);
+      opacity: 0.6;
+    }
+
+    .hero-main-img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .share-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .share-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #222;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .top-grid, .two-column-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="social-icons" style="display: inline-flex; align-items: center; gap: 10px;">
+      <a href="https://youtube.com/@vidiyarkaalai-news-channel?si=vvdOgMQp8Jp-Gcvr"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+      <a href="https://www.instagram.com/vidiyarkaalainews?stkn=MTJ3c3pvcDlvYzNrbw=="><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
+      <a href="https://www.facebook.com/share/1LGV9jDSoP/"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" alt="Facebook"></a>
+      <a href="mailto:vidiyarkaalainews2025@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail"></a>
+    </div>
+    <div class="top-icons">
+      <span onclick="googleLogin()">
+        <img id="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" style="width:28px; height:28px; border-radius:50%; cursor:pointer;">
+      </span>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="logo-banner">
+    <div class="logo vidiyal-logo">
+      <img src="images/logonew.png" alt="News Logo" width="380" height="40" style="max-width: 100%; height: auto;">
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-navbar">
+    <div class="nav-icons-group">
+      <button class="icon-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </button>
+    </div>
+
+    <a href="#" class="home-btn" onclick="showList()" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+
+    <div class="nav-links">
+      <a href="#" class="nav-item">அரசியல்</a>
+      <a href="#" class="nav-item">இந்தியா</a>
+      <a href="#" class="nav-item">தமிழகம்</a>
+      <a href="#" class="nav-item">குற்றம்</a>
+      <a href="#" class="nav-item">விளையாட்டு</a>
+      <a href="#" class="nav-item">கல்வி</a>
+      <a href="#" class="nav-item">ஆன்மீகம் ▼</a>
+      <a href="#" class="nav-item">மகளிர் ▼</a>
+      <a href="#" class="nav-item">வேலைவாய்ப்பு</a>
+      <a href="#" class="nav-item">மாவட்டம் ▼</a>
+    </div>
+  </nav>
+
+  <!-- Breaking Bar -->
+  <div class="breaking-bar">
+    <div class="breaking-label">Breaking News</div>
+    <div class="ticker-content">
+      <div class="ticker-text">
+        உயிரிழந்த 6ஆம் வகுப்பு மாணவனின் இறப்புக்கு நீதிகேட்டு போராட்டம்.. &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; பள்ளிக்கு 5 கிலோமீட்டர் தூரம் நடந்து செல்லும் அவலம்..
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="container">
+
+    <!-- VIEW 1: HOME CARD LIST -->
+    <div id="list-view">
+      
+      <!-- TAMILAGAM SECTION -->
+      <section class="category-section">
+        <h2 class="section-title">தமிழகம்</h2>
+        
+        <!-- 3-Column Top Grid -->
+        <div class="top-grid">
+          
+          <article class="news-card" onclick="openArticle('ஈரோட்டில் 41-வது தேசிய கண் தானம் இரு வார விழா', 'Sep 06, 2026 15:23 IST', 'VK-News', 'images/1.jpeg', 'ஈரோடு மாவட்டத்தில் 41-வது தேசிய கண் தான இரு வார விழாவை முன்னிட்டு விழிப்புணர்வு பேரணி நடைபெற்றது. இதில் ஏராளமான பொதுமக்கள் மற்றும் கல்லூரி மாணவர்கள் கலந்துகொண்டு கண் தானத்தின் நன்மைகள் குறித்து விழிப்புணர்வு ஏற்படுத்தினர்.')">
+            <div class="thumb-wrapper">
+              <img src="images/1.jpeg" alt="News Image">
+            </div>
+            <div class="cat-tag">தமிழ்நாடு</div>
+            <span class="card-headline">ஈரோட்டில் 41-வது தேசிய கண் தானம் இரு வார விழா</span>
+            <div class="meta-line">By <span class="author">VK-News</span> &nbsp; Sep 06, 2026 15:23 IST</div>
+          </article>
+
+          <article class="news-card" onclick="openArticle('காவல்துறையின் வீரமும் தியாகமும் என்றும் மறக்க முடியாது', 'Sep 06, 2026 14:46 IST', '@nithishvrs', 'images/2.jpeg', 'தமிழக காவல்துறையின் தியாகம் மற்றும் வீரத்தை போற்றும் வகையில் சிறப்பான அணிவகுப்பு விழா நடைபெற்றது. பொதுமக்களின் பாதுகாப்பை உறுதி செய்வதில் காவல்துறையினர் காட்டும் அர்ப்பணிப்பு பாராட்டப்பட்டது.')">
+            <div class="thumb-wrapper">
+              <img src="images/2.jpeg" alt="News Image">
+            </div>
+            <div class="cat-tag">வீடியோ</div>
+            <span class="card-headline">காவல்துறையின் வீரமும் தியாகமும் என்றும் மறக்க முடியாது</span>
+            <div class="meta-line">By <span class="author">@nithishvrs</span> &nbsp; Sep 06, 2026 14:46 IST</div>
+          </article>
+
+          <article class="news-card" onclick="openArticle('செங்கை அரசு மருத்துவமனையில் தேங்கி நிற்கும் மழைநீரால் நோயாளிகள் அவதி', 'Sep 06, 2026 15:23 IST', 'VK-News', 'images/3.jpeg', 'செங்கல்பட்டு அரசு மருத்துவமனை வளாகத்தில் மழைநீர் சரியாக வெளியேறாமல் தேங்கியுள்ளதால் நோயாளிகள் மற்றும் பார்வையாளர்கள் கடும் அவதி அடைந்துள்ளனர்.')">
+            <div class="thumb-wrapper">
+              <img src="images/3.jpeg" alt="News Image">
+            </div>
+            <div class="cat-tag">தமிழ்நாடு</div>
+            <span class="card-headline">செங்கை அரசு மருத்துவமனையில் தேங்கி நிற்கும் மழைநீரால் நோயாளிகள் அவதி</span>
+            <div class="meta-line">By <span class="author">VK-News</span> &nbsp; Sep 06, 2026 15:23 IST</div>
+          </article>
+
+        </div>
+
+        <!-- 2-Column Split Grid -->
+        <div class="two-column-grid">
+          
+          <article class="news-card" onclick="openArticle('காவல்துறையின் வீரமும் தியாகமும் என்றும் மறக்க முடியாது', 'Sep 06, 2026 14:46 IST', '@nithishvrs', 'images/2.jpeg', 'தமிழக காவல்துறையின் தியாகம் மற்றும் வீரத்தை போற்றும் வகையில் சிறப்பான அணிவகுப்பு விழா நடைபெற்றது.')">
+            <div class="thumb-wrapper">
+              <img src="images/2.jpeg" alt="News Image">
+            </div>
+            <div class="cat-tag">வீடியோ</div>
+            <span class="card-headline">காவல்துறையின் வீரமும் தியாகமும் என்றும் மறக்க முடியாது</span>
+            <div class="meta-line">By <span class="author">@nithishvrs</span> &nbsp; Sep 06, 2026 14:46 IST</div>
+          </article>
+
+          <article class="news-card" onclick="openArticle('ஈரோட்டில் 41-வது தேசிய கண் தானம் இரு வார விழா', 'Sep 06, 2026 15:23 IST', 'VK-News', 'images/3.jpeg', 'ஈரோடு மாவட்டத்தில் 41-வது தேசிய கண் தான இரு வார விழாவை முன்னிட்டு விழிப்புணர்வு பேரணி நடைபெற்றது.')">
+            <div class="thumb-wrapper">
+              <img src="images/3.jpeg" alt="News Image">
+            </div>
+            <div class="cat-tag">தமிழ்நாடு</div>
+            <span class="card-headline">ஈரோட்டில் 41-வது தேசிய கண் தானம் இரு வார விழா</span>
+            <div class="meta-line">By <span class="author">VK-News</span> &nbsp; Sep 06, 2026 15:23 IST</div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- VIEW 2: ARTICLE DETAIL PAGE (HIDDEN BY DEFAULT) -->
+    <div id="detail-view">
+      <button class="back-btn" onclick="showList()">← பின்செல்ல (Back to News)</button>
+
+      <h1 class="detail-title" id="d-title">செய்தி தலைப்பு</h1>
+      <div class="detail-timestamp">
+        By <strong id="d-author" style="color:#000;">VK-News</strong> &nbsp;•&nbsp; <span id="d-time">Sep 06, 2026</span>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <img id="d-bg-blur" class="hero-bg-blur" src="" alt="Background Blur">
+        <img id="d-image" class="hero-main-img" src="" alt="News Image">
+      </div>
+
+      <div class="share-bar">
+        <span style="font-size:13px; font-weight:bold; color:#555;">Share:</span>
+        <a href="#" class="share-btn" style="background:#1877f2;">f</a>
+        <a href="#" class="share-btn" style="background:#000;">𝕏</a>
+        <a href="#" class="share-btn" style="background:#25d366;">💬</a>
+      </div>
+
+      <div class="article-body">
+        <p id="d-content">
+          செய்தியின் விரிவான விவரங்கள் இங்கே தோன்றும்...
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NAVIGATION SCRIPT -->
+  <script>
+    function openArticle(title, time, author, imageSrc, content) {
+      document.getElementById('d-title').innerText = title;
+      document.getElementById('d-time').innerText = time;
+      document.getElementById('d-author').innerText = author;
+      document.getElementById('d-image').src = imageSrc;
+      document.getElementById('d-bg-blur').src = imageSrc;
+      document.getElementById('d-content').innerText = content;
+
+      document.getElementById('list-view').style.display = 'none';
+      document.getElementById('detail-view').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function showList() {
+      document.getElementById('detail-view').style.display = 'none';
+      document.getElementById('list-view').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+  <!-- FIREBASE MODULES -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDHWLYJMHLlwm9RH5vLIQ_PNXN7xLTxOIo",
+      authDomain: "vidiyarkaalainews-93cff.firebaseapp.com",
+      projectId: "vidiyarkaalainews-93cff",
+      storageBucket: "vidiyarkaalainews-93cff.firebasestorage.app",
+      messagingSenderId: "200643367368",
+      appId: "1:200643367368:web:662d31246b8ce5f2d4f0fd",
+      measurementId: "G-JPJB83JP3T"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <script type="module" src="auth.js"></script>
+
+</body>
+</html>
