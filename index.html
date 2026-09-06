@@ -26,6 +26,7 @@
       color: var(--text-dark);
     }
 
+    
     /* Topbar */
     .topbar {
       display: flex;
@@ -47,15 +48,36 @@
       vertical-align: middle;
     }
 
+    .sticky-header-group {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff; /* பின்னணி வெளிப்படையாக (Transparent) இருக்கக் கூடாது */
+}
+
     /* Logo Banner */
     .logo-banner {
+      background-color: #ffffff; 
+      position: relative;
+      z-index: 1;
+
+      position: sticky;
+      top:0;
+      z-index: 1000;  
       text-align: center;
       background: #fff;
       border-bottom: 1px solid var(--border-color);
     }
 
+
+    
     /* Navigation Bar */
     .main-navbar {
+      position: relative;
+      z-index: 1;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
       align-items: center;
       background: #588ed6;
@@ -367,41 +389,41 @@
   </div>
 
   <!-- Banner -->
-  <div class="logo-banner">
-    <div class="logo">
-      <img src="images/logonew.png" width="280" height="40" style="max-width: 100%; height: auto;">
+  <div class="sticky-header-group">
+    <div class="logo-banner">
+      <div class="logo">
+        <img src="images/logonew.png" width="280" height="40" style="max-width: 100%; height: auto;">
+      </div>
     </div>
+    <!-- Navbar -->
+    <nav class="main-navbar">
+      <div class="nav-icons-group">
+        <button class="icon-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </button>
+      </div>
+
+      <a href="#" class="home-btn" onclick="showList()" aria-label="Home">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      </a>
+
+      <div class="nav-links">
+        <a href="#arasiyal-section" class="nav-item">அரசியல்</a>
+        <a href="#" class="nav-item">இந்தியா</a>
+        <a href="#" class="nav-item">தமிழகம்</a>
+        <a href="#" class="nav-item">குற்றம்</a>
+        <a href="#" class="nav-item">விளையாட்டு</a>
+        <a href="#" class="nav-item">கல்வி</a>
+        <a href="#" class="nav-item">ஆன்மீகம் ▼</a>
+        <a href="#" class="nav-item">மகளிர் ▼</a>
+        <a href="#" class="nav-item">வேலைவாய்ப்பு</a>
+        <a href="#district-section" class="nav-item">மாவட்டம் ▼</a>
+      </div>
+    </nav>
   </div>
-
-  <!-- Navbar -->
-  <nav class="main-navbar">
-    <div class="nav-icons-group">
-      <button class="icon-btn" aria-label="Menu">
-        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-      </button>
-      <button class="icon-btn" aria-label="Search">
-        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-      </button>
-    </div>
-
-    <a href="#" class="home-btn" onclick="showList()" aria-label="Home">
-      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-    </a>
-
-    <div class="nav-links">
-      <a href="#" class="nav-item">அரசியல்</a>
-      <a href="#" class="nav-item">இந்தியா</a>
-      <a href="#" class="nav-item">தமிழகம்</a>
-      <a href="#" class="nav-item">குற்றம்</a>
-      <a href="#" class="nav-item">விளையாட்டு</a>
-      <a href="#" class="nav-item">கல்வி</a>
-      <a href="#" class="nav-item">ஆன்மீகம் ▼</a>
-      <a href="#" class="nav-item">மகளிர் ▼</a>
-      <a href="#" class="nav-item">வேலைவாய்ப்பு</a>
-      <a href="#" class="nav-item">மாவட்டம் ▼</a>
-    </div>
-  </nav>
-
   <!-- Breaking Bar -->
   <div class="breaking-bar">
     <div class="breaking-label">Breaking News</div>
@@ -418,7 +440,7 @@
     <!-- VIEW 1: HOME CARD LIST -->
     <div id="list-view">
       <!-- TAMILAGAM SECTION -->
-      <section class="category-section">
+      <section class="category-section" id="arasiyal-section">
         <h2 class="section-title">அரசியல்</h2>
         
         <!-- 3-Column Top Grid -->
@@ -475,8 +497,8 @@
         </div>
       </section>
       
-      <section class="category-section">
-        <h2 class="section-title">அரசியல்</h2>
+      <section class="category-section" id="district-section">
+        <h2 class="section-title">மாவட்டம் </h2>
         
         <!-- 3-Column Top Grid -->
         <div class="top-grid">
@@ -565,6 +587,5 @@
     const analytics = getAnalytics(app);
   </script>
   <script type="module" src="auth.js"></script>
-
 </body>
 </html>
