@@ -1,5 +1,29 @@
-.p {
-  text-align: left; /* justify-க்கு பதிலாக இதைப் பயன்படுத்தவும் */
-  line-height: 1.6;  /* வாசகர்கள் படிக்க எளிதாக இருக்க வரி இடைவெளி */
-  word-spacing: normal;
+.tamil-text {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-weight: 400;
+}
+.thumb-wrapper.slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: slideImage 6s infinite ease-in-out;
+}
+
+.slide-track img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes slideImage {
+  0%, 45% { transform: translateX(0%); }
+  50%, 95% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
