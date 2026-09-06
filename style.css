@@ -35,7 +35,7 @@
     /* Logo Banner styling (Fixed class name mismatch) */
     .logo-banner {
       background: white;
-      padding: 20px;
+      padding: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -247,3 +247,26 @@
 .social-icons a {
     margin-right: 15px;    
 } 
+
+
+.datetime-display {
+        font-size: 16px;
+    }
+    .social-icons img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* மொபைல் போனில் பார்க்கும்போது (Screen size 768px-க்கு குறைவாக இருந்தால்) */
+    @media screen and (max-width: 768px) {
+        .datetime-display {
+            font-size: 13px !important; /* போனில் தேதி எழுத்துச் சின்னதாக மாற */
+        }
+        .social-icons img {
+            width: 18px !important;  /* போனில் ஐகான்கள் சின்னதாக மாற */
+            height: 18px !important;
+        }
+        .social-icons {
+            gap: 8px !important;     /* ஐகான்களுக்கு இடையே உள்ள இடைவெளியைக் குறைக்க */
+        }
+    }
