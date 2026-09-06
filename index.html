@@ -25,11 +25,7 @@
       background-color: var(--bg-light);
       color: var(--text-dark);
     }
-    .p {
-   text-align: left; /* justify-க்கு பதிலாக இதைப் பயன்படுத்தவும் */
-   line-height: 1.6;  /* வாசகர்கள் படிக்க எளிதாக இருக்க வரி இடைவெளி */
-   word-spacing: normal;
-}
+
     
     /* Topbar */
     .topbar {
@@ -371,11 +367,12 @@ section,
     }
 
     .article-body p {
-      font-size: 17px;
+      font-size: 13px;
       line-height: 1.8;
       color: #222;
       margin-bottom: 18px;
-      text-align: justify;
+      text-align: left;
+      font-style: italic;
     }
 
     /* Responsive */
@@ -384,22 +381,6 @@ section,
         grid-template-columns: 1fr;
       }
     }
-
-    /* Card Headline Spacing Fix */
-.card-headline {
-  text-align: left;
-  display: block; /* Full line எடுக்க layout சரிசெய்யும் */
-  letter-spacing: normal; /* Extra character spacing நீக்க */
-  word-spacing: normal;
-  line-height: 1.4; /* Lines நெருக்கமாக வர */
-  margin-bottom: 8px;
-}
-
-/* Meta Line & Author Spacing Fix */
-.meta-line, .author {
-  letter-spacing: 0px;
-  word-spacing: normal;
-}
   </style>
 </head>
 <body>
@@ -457,7 +438,7 @@ section,
   </div>
   <!-- Breaking Bar -->
   <div class="breaking-bar">
-    <div class="breaking-label">Breaking Nithish</div>
+    <div class="breaking-label">Breaking Nithihsh</div>
     <div class="ticker-content">
       <div class="ticker-text">
         உயிரிழந்த 6ஆம் வகுப்பு மாணவனின் இறப்புக்கு நீதிகேட்டு போராட்டம்.. &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; பள்ளிக்கு 5 கிலோமீட்டர் தூரம் நடந்து செல்லும் அவலம்..
@@ -508,13 +489,12 @@ section,
         <!-- 2-Column Split Grid -->
         <div class="two-column-grid">
           
-          
           <article class="news-card" onclick="openArticle('இடைத்தேர்தல் வேட்பாளரை அறிவித்த முதல்வர் ரங்கசாமி', 'Sep 06, 2026 14:46 IST', '@nithishvrs', 'images/arasiyal7.png', 'இடைத்தேர்தல் வேட்பாளரை அறிவித்த முதல்வர் ரங்கசாமி, தட்டாஞ்சாவடி தொகுதி இடைத்தேர்தலில் NR காங்கிரஸ் சார்பாக அசோக் ஆனந்த் களமிறங்குவார் என முதல்வர் ரங்கசாமி அறிவித்துள்ளார். முன்னதாக மங்களம், தட்டாஞ்சாவடி தொகுதிகளில் போட்டியிட்டு வென்ற ரங்கசாமி முதல்வராக பொறுப்பேற்ற பிறகு, தட்டாஞ்சாவடி MLA பதவியை ராஜினாமா செய்திருந்தார்.  இத்தொகுதி காலியானதாக அறிவிக்கப்பட்ட நிலையில், விரைவில் தேதி அறிவிக்கப்படும் என எதிர்ப்பார்க்கப்படுகிறது.')">
             <div class="thumb-wrapper">
               <img src="images/arasiyal7.png" alt="News Image">
             </div>
             <div class="cat-tag">தேர்தல்</div>
-            <span class="card-headline meta-line">இடைத்தேர்தல் வேட்பாளரை அறிவித்த முதல்வர் ரங்கசாமி</span>
+            <span class="card-headline">இடைத்தேர்தல் வேட்பாளரை அறிவித்த முதல்வர் ரங்கசாமி</span>
             <div class="meta-line">By <span class="author">@nithishvrs</span> &nbsp; Sep 06, 2026 14:46 IST</div>
           </article>
 
