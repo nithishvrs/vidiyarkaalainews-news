@@ -260,14 +260,14 @@
     /* மொபைல் போனில் பார்க்கும்போது (Screen size 768px-க்கு குறைவாக இருந்தால்) */
     @media screen and (max-width: 768px) {
         .datetime-display {
-            font-size: 13px !important; /* போனில் தேதி எழுத்துச் சின்னதாக மாற */
+            font-size: 10px !important; /* போனில் தேதி எழுத்துச் சின்னதாக மாற */
         }
         .social-icons img {
-            width: 18px !important;  /* போனில் ஐகான்கள் சின்னதாக மாற */
-            height: 18px !important;
+            width: 15px !important;  /* போனில் ஐகான்கள் சின்னதாக மாற */
+            height: 15px !important;
         }
         .social-icons {
-            gap: 8px !important;     /* ஐகான்களுக்கு இடையே உள்ள இடைவெளியைக் குறைக்க */
+            gap: 6px !important;     /* ஐகான்களுக்கு இடையே உள்ள இடைவெளியைக் குறைக்க */
         }
     }
 
@@ -404,7 +404,7 @@
   @media screen and (max-width: 768px) {
   /* Replace '.vidiyal-logo' with the actual class or ID of your image */
   .vidiyal-logo {
-    width: 60%; /* Adjust this percentage to make it smaller */
+    width: 50%; /* Adjust this percentage to make it smaller */
     max-width: 200px; /* Sets a maximum limit for mobile screens */
     height: auto;
   }
