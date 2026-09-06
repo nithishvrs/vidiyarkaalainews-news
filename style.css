@@ -271,6 +271,255 @@
         }
     }
 
+  :root {
+      --primary-red: #a80000;
+      --ticker-bg: #4a4a4a;
+      --text-dark: #111111;
+      --text-muted: #666666;
+      --category-color: #888888;
+      --border-color: #eaeaea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, 'Latha', 'Tamil Sangam MN', sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: var(--text-dark);
+      padding-bottom: 60px;
+    }
+
+    /* 1. Breaking News Header Bar */
+    .breaking-bar {
+      display: flex;
+      background-color: rgb(129, 130, 130);
+      color: #ffffff;
+      height: 38px;
+      align-items: center;
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    .breaking-label {
+      background-color: rgb(240, 95, 37);
+      color: #ffffff;
+      font-weight: bold;
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      white-space: nowrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ticker-content {
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 25s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
+    /* Top Leaderboard Placeholder */
+    .top-ad-space {
+      width: 100%;
+      height: 90px;
+      background-color: #f5f5f5;
+      margin: 15px 0;
+    }
+
+    /* 2. Main 3-Column Grid Container */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr 280px;
+      gap: 20px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Shared Card Styles */
+    .news-card {
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+    }
+
+    .thumbnail-box {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .thumbnail-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .play-icon-overlay {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .category-tag {
+      font-size: 12px;
+      color: var(--category-color);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .category-tag::before {
+      content: "▶";
+      font-size: 8px;
+    }
+
+    .headline {
+      font-weight: bold;
+      line-height: 1.3;
+      text-decoration: none;
+      color: var(--text-dark);
+      display: block;
+    }
+
+    .headline:hover {
+      color: var(--primary-red);
+    }
+
+    .meta-info {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Left Column Specifics */
+    .left-col .headline {
+      font-size: 14px;
+    }
+
+    /* Center Featured Column Specifics */
+    .featured-col .headline {
+      font-size: 20px;
+      margin-top: 8px;
+    }
+
+    .featured-col .excerpt {
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    /* Right Column Specifics */
+    .right-col .section-title {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .right-col .headline {
+      font-size: 14px;
+    }
+
+    .small-horizontal-card {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+
+    .small-horizontal-card .thumbnail-box {
+      width: 90px;
+      height: 60px;
+      flex-shrink: 0;
+      margin-bottom: 0;
+    }
+
+    .small-horizontal-card .thumbnail-box img {
+      height: 100%;
+    }
+
+    /* 3. Floating UI Widgets */
+    .floating-bell {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 44px;
+      height: 44px;
+      background-color: var(--primary-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .floating-job-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      border: 1px solid #dcdcdc;
+      border-radius: 25px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      font-size: 13px;
+      color: #2b6cb0;
+      z-index: 100;
+    }
+
+    .floating-job-toast .close-btn {
+      cursor: pointer;
+      color: #888;
+      font-weight: bold;
+    }
+
+    /* Responsive Breakdown */
+    @media (max-width: 900px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 :root {
       --bar-bg: #0081ca;
       --active-home-bg: #005a92;
@@ -400,12 +649,3 @@
       display: inline-block;
       transform: scaleY(0.7);
     }
-
-  @media screen and (max-width: 768px) {
-  /* Replace '.vidiyal-logo' with the actual class or ID of your image */
-  .vidiyal-logo {
-    width: 50%; /* Adjust this percentage to make it smaller */
-    max-width: 200px; /* Sets a maximum limit for mobile screens */
-    height: auto;
-  }
-}
