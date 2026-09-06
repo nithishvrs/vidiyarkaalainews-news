@@ -229,3 +229,21 @@
         font-size: 16px;
       }
     }
+  /* clock style  */
+  .datetime-display { 
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+            padding: 5px 0;
+        }
+/* தேதி மற்றும் நேரத்திற்கு கீழே இடைவெளி விட்டு ஐகான்கள் வர */
+.social-icons {
+    display: block;        /* அடுத்த வரிக்கு கொண்டு வர */
+    margin-top: 10px;      /* தேதிக்கும் ஐகானுக்கும் இடையே உள்ள இடைவெளி */
+}
+
+/* ஐகானlகளுக்கு இடையே இடைவெளி தேவைப்பட்டால் */
+.social-icons a {
+    margin-right: 15px;    
+}   
