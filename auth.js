@@ -63,3 +63,5 @@ window.googleLogin = function() {
         
         // ஒவ்வொரு வினாடிக்கும் (1000 ms) நேரம் அப்டேட் ஆகும்
         setInterval(updateClock, 1000);
+
+        
