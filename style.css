@@ -270,3 +270,133 @@
             gap: 8px !important;     /* ஐகான்களுக்கு இடையே உள்ள இடைவெளியைக் குறைக்க */
         }
     }
+
+:root {
+      --bar-bg: #0081ca;
+      --active-home-bg: #005a92;
+      --highlight-bg: #0d6199;
+      --text-color: #ffffff;
+      --divider-color: rgba(255, 255, 255, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, 'Latha', 'Tamil Sangam MN', sans-serif;
+    }
+
+    /* Main Navigation Wrapper */
+    .main-navbar {
+      background-color: var(--bar-bg);
+      display: flex;
+      align-items: center;
+      height: 44px;
+      overflow-x: auto;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    /* Hide Scrollbar */
+    .main-navbar::-webkit-scrollbar {
+      display: none;
+    }
+    .main-navbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Left Icon Controls */
+    .nav-icons-group {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 16px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .icon-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Home Button Section */
+    .home-btn {
+      background-color: var(--active-home-bg);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    .home-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Nav Links Base Style */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .nav-item {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 0 14px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: relative;
+    }
+
+    .nav-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 25%;
+      height: 50%;
+      width: 1px;
+      background-color: var(--divider-color);
+    }
+
+    .nav-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Right Highlighted Link (சிறப்பு பகுதி) */
+    .nav-item.highlight {
+      background-color: var(--highlight-bg);
+      padding: 0 16px;
+    }
+
+    .nav-item.highlight:hover {
+      background-color: #084c78;
+    }
+
+    /* Dropdown Arrow Symbol */
+    .arrow {
+      font-size: 10px;
+      margin-left: 2px;
+      display: inline-block;
+      transform: scaleY(0.7);
+    }
