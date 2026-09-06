@@ -1,22 +1,37 @@
-// Firebase Auth மற்றும் Google Provider-ஐ இறக்குமதி செய்யவும் (Firebase v9/v10 Modular SDK)
+// 1. தேவையான Firebase SDK Modules-ஐ இறக்குமதி செய்யவும்
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 
-// Auth மற்றும் Provider-ஐ செட் பண்ணுதல்
-const auth = getAuth();
+// 2. Firebase கான்பிகுரேஷன்
+const firebaseConfig = {
+  apiKey: "AIzaSyDHWLYJMHLlwm9RH5vLIQ_PNXN7xLTxOIo",
+  authDomain: "vidiyarkaalainews-93cff.firebaseapp.com",
+  projectId: "vidiyarkaalainews-93cff",
+  storageBucket: "vidiyarkaalainews-93cff.firebasestorage.app",
+  messagingSenderId: "200643367368",
+  appId: "1:200643367368:web:662d31246b8ce5f2d4f0fd",
+  measurementId: "G-JPJB83JP3T"
+};
+
+// 3. முதலில் Firebase App-ஐ Initialize செய்ய வேண்டும்
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+// 4. Initialize செய்யப்பட்ட 'app'-ஐ Auth-க்கு அனுப்ப வேண்டும்
+const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// உங்கள் span-ல் இருக்கும் onclick="googleLogin()" பங்க்ஷன்
+// 5. Google Login Function
 window.googleLogin = function() {
   signInWithPopup(auth, provider)
     .then((result) => {
-      // லாகின் வெற்றி பெற்றால் யூசர் தகவல்கள் கிடைக்கும்
       const user = result.user;
       console.log("Logged in user:", user);
 
-      // லாகின் செய்தவரின் ப்ரொபைல் படத்தையும் பெயரையும் மாற்ற
       const profileImage = document.getElementById("profile-image");
       if (profileImage) {
-        profileImage.src = user.photoURL; // கூகுள் ப்ரொபைல் படம்
+        profileImage.src = user.photoURL;
         profileImage.alt = user.displayName;
       }
 
