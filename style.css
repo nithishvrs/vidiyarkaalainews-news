@@ -136,7 +136,7 @@
 }
 
 .site-footer {
-      background-color: #cfcfd2;
+      background-color: #e3e3e6;
       color: #333;
       font-family: Arial, sans-serif;
       border-top: 1px solid #e0e0e0;
@@ -157,7 +157,7 @@
     .footer-col .logo-title {
       font-size: 28px;
       font-weight: bold;
-      color: #0056b3;
+      color: #0099ff;
       margin-bottom: 12px;
     }
 
@@ -170,8 +170,8 @@
     .col-title {
       font-size: 16px;
       font-weight: bold;
-      color: #0056b3;
-      border-left: 4px solid #0056b3;
+      color: #0099ff;
+      border-left: 4px solid #0099ff;
       padding-left: 8px;
       margin-bottom: 15px;
       background: #f0f4f8;
@@ -197,7 +197,7 @@
     }
 
     .footer-links a:hover {
-      color: #0056b3;
+      color: #0099ff;
     }
 
     /* App Badges */
@@ -290,4 +290,71 @@
   font-weight: bold; /* Text-ஐ Bold ஆக்குவதற்கு */
   line-height: 1.3;
   color: #333333; /* எழுத்தின் நிறம் */
+}
+
+/* Navigation Bar Container */
+.main-navbar {
+  display: flex;
+  align-items: center;
+  background-color: #4a86e8; /* Blue color */
+  padding: 8px 15px;
+  gap: 15px;
+}
+
+/* Icon Buttons (Menu) */
+.icon-btn, .home-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.icon-btn svg, .home-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff; /* Icon White Color */
+}
+
+/* Nav Links Container - Flexbox Gap is key here */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Items இடையே சரியான இடைவெளி தருகிறது */
+  overflow-x: auto; /* சிறிய திரைகளில் overlap ஆகாமல் horizontal scroll ஆகும் */
+  white-space: nowrap;
+}
+
+/* Nav Link Items */
+.nav-item {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 8px;
+}
+
+.nav-item:hover {
+  opacity: 0.8;
+}
+
+/* ///// */
+/* Nav links container-க்கு இந்த CSS சேர்க்க வேண்டும் */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  overflow-x: auto;         /* Scroll வசதி இருக்கும் */
+  white-space: nowrap;
+  
+  /* Scrollbar-ஐ மறைப்பதற்கான வழிகள் */
+  scrollbar-width: none;    /* Firefox உலாவிக்கு */
+  -ms-overflow-style: none; /* Internet Explorer / Edge உலாவிக்கு */
+}
+
+/* Chrome, Safari, Opera உலாவிகளுக்கு Scrollbar-ஐ மறைக்க */
+.nav-links::-webkit-scrollbar {
+  display: none;
 }
