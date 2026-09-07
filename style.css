@@ -27,3 +27,106 @@
   50%, 95% { transform: translateX(-50%); }
   100% { transform: translateX(0%); }
 }
+
+
+
+.kural-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-left: 5px solid #0056b3;
+      border-radius: 8px;
+      padding: 16px;
+      max-width: 650px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      font-family: Arial, sans-serif;
+      margin: 15px 0;
+    }
+
+    /* திருவள்ளுவர் படம் (Image Container) */
+    .kural-image-container {
+      flex-shrink: 0;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #0056b3;
+    }
+
+    .kural-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* குறள் விவரங்கள் */
+    .kural-content-container {
+      flex-grow: 1;
+    }
+
+    .kural-header {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .kural-header .badge {
+      background-color: #0056b3;
+      color: #ffffff;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .kural-header .tag {
+      background-color: #f0f0f0;
+      color: #444444;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .kural-header .day-count {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-left: auto;
+    }
+
+    .kural-body .kural-line1,
+    .kural-body .kural-line2 {
+      font-size: 15px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 3px 0;
+      line-height: 1.4;
+    }
+
+    .kural-body .kural-meaning {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #555555;
+      line-height: 1.4;
+    }
+
+    /* மொபைல் திரைகளுக்கான Responsive Style */
+    @media (max-width: 480px) {
+      .kural-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .kural-header {
+        justify-content: center;
+      }
+      .kural-header .day-count {
+        margin-left: 0;
+      }
+    }

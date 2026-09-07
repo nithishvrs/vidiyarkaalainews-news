@@ -64,4 +64,64 @@ window.googleLogin = function() {
         // ஒவ்வொரு வினாடிக்கும் (1000 ms) நேரம் அப்டேட் ஆகும்
         setInterval(updateClock, 1000);
 
-        
+
+ // 1. தினசரி குறள் கணக்கீடு (இன்றைய நாளில் இருந்து குறள் #1 தொடங்கும்)
+    const START_DATE = new Date();
+    START_DATE.setHours(0, 0, 0, 0);
+
+    const TODAY = new Date();
+    TODAY.setHours(0, 0, 0, 0);
+
+    const diffTime = TODAY - START_DATE;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const kuralNumber = (diffDays % 1330) + 1;
+
+    document.getElementById("kural-number-badge").innerText = `குறள் #${kuralNumber}`;
+
+    // 2. Real-time Live Timer function (ஒவ்வொரு வினாடியும் நேரம் மாறும்)
+    function updateLiveTimer() {
+      const now = new Date();
+      
+      const daysTamil = ["ஞாயிறு", "திங்கள்", "செவ்வாய்", "புதன்", "வியாழன்", "வெள்ளி", "சனி"];
+      const monthsTamil = ["ஜனவரி", "பிப்ரவரி", "மார்ச்", "ஏப்ரல்", "மே", "ஜூன்", "ஜூலை", "ஆகஸ்ட்", "செப்டம்பர்", "அக்டோபர்", "நவம்பர்", "டிசம்பர்"];
+
+      const dayName = daysTamil[now.getDay()];
+      const date = now.getDate();
+      const month = monthsTamil[now.getMonth()];
+      const year = now.getFullYear();
+
+      // நேரத்தை format செய்தல் (AM/PM)
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      
+      hours = hours % 12;
+      hours = hours ? hours : 12; 
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      const dateString = `${dayName}, ${date} ${month} ${year} (நாள் ${kuralNumber}/1330)`;
+      const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+      document.getElementById("date-text").innerText = dateString;
+      document.getElementById("time-text").innerText = timeString;
+    }
+
+    // நேரத்தை உடனுக்குடன் புதுப்பிக்க 1 வினாடிக்கு ஒருமுறை இயங்கும்
+    setInterval(updateLiveTimer, 1000);
+    updateLiveTimer();
+
+    // 3. API மூலம் திருக்குறளை எடுத்து எழுதுதல்
+    fetch(`https://api-thirukkural.vercel.app/api?num=${kuralNumber}`)
+      .then(response => response.json())
+      .then(data => {
+        if(data && data.line1) {
+          document.getElementById("kural-line1").innerText = data.line1;
+          document.getElementById("kural-line2").innerText = data.line2;
+          document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> ${data.tam_exp}`;
+        }
+      })
+      .catch(error => {
+        console.log("API Error, using default text");
+      });

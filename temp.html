@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>விடியற்காலை - திருக்குறள்</title>
+  <style>
+    .kural-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-left: 5px solid #0056b3;
+      border-radius: 8px;
+      padding: 16px;
+      max-width: 720px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      font-family: Arial, sans-serif;
+      margin: 15px 0;
+    }
+
+    .kural-image-container {
+      flex-shrink: 0;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #0056b3;
+    }
+
+    .kural-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .kural-content-container {
+      flex-grow: 1;
+    }
+
+    .kural-header {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .kural-header .badge {
+      background-color: #0056b3;
+      color: #ffffff;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .kural-header .tag {
+      background-color: #f0f0f0;
+      color: #444444;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* தேதி, கிழமை, நேரம் மற்றும் நாள் எண்ணிக்கை கொண்ட பெட்டி */
+    .kural-header .day-count {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-left: auto;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .kural-body .kural-line1,
+    .kural-body .kural-line2 {
+      font-size: 15px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 3px 0;
+      line-height: 1.4;
+    }
+
+    .kural-body .kural-meaning {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #555555;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 580px) {
+      .kural-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .kural-header {
+        justify-content: center;
+      }
+      .kural-header .day-count {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="kural-card">
+    <div class="kural-image-container">
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/2/23/Thiruvalluvar_Statue_Kanyakumari.jpg" 
+        alt="Thiruvalluvar" 
+        class="kural-image"
+      />
+    </div>
+
+    <div class="kural-content-container">
+      <div class="kural-header">
+        <span class="badge" id="kural-number-badge">குறள் #1</span>
+        <span class="tag">தமிழகம்</span>
+        
+        <!-- Live Date & Timer Badge -->
+        <span class="day-count" id="day-count-badge">
+          <span id="date-text">ஏற்றப்படுகிறது...</span> | <span id="time-text">00:00:00 AM</span>
+        </span>
+      </div>
+
+      <div class="kural-body">
+        <p class="kural-line1" id="kural-line1">அகர முதல எழுத்தெல்லாம் ஆதி</p>
+        <p class="kural-line2" id="kural-line2">பகவன் முதற்றே உலகு.</p>
+        <p class="kural-meaning" id="kural-meaning">
+          <strong>பொருள்:</strong> எழுத்துக்கள் எல்லாம் 'அ' கரத்தை அடிப்படையாகக் கொண்டிருக்கின்றன; அதுபோல உலகம் இறைவனை அடிப்படையாகக் கொண்டிருக்கிறது.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. தினசரி குறள் கணக்கீடு (இன்றைய நாளில் இருந்து குறள் #1 தொடங்கும்)
+    const START_DATE = new Date();
+    START_DATE.setHours(0, 0, 0, 0);
+
+    const TODAY = new Date();
+    TODAY.setHours(0, 0, 0, 0);
+
+    const diffTime = TODAY - START_DATE;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const kuralNumber = (diffDays % 1330) + 1;
+
+    document.getElementById("kural-number-badge").innerText = `குறள் #${kuralNumber}`;
+
+    // 2. Real-time Live Timer function (ஒவ்வொரு வினாடியும் நேரம் மாறும்)
+    function updateLiveTimer() {
+      const now = new Date();
+      
+      const daysTamil = ["ஞாயிறு", "திங்கள்", "செவ்வாய்", "புதன்", "வியாழன்", "வெள்ளி", "சனி"];
+      const monthsTamil = ["ஜனவரி", "பிப்ரவரி", "மார்ச்", "ஏப்ரல்", "மே", "ஜூன்", "ஜூலை", "ஆகஸ்ட்", "செப்டம்பர்", "அக்டோபர்", "நவம்பர்", "டிசம்பர்"];
+
+      const dayName = daysTamil[now.getDay()];
+      const date = now.getDate();
+      const month = monthsTamil[now.getMonth()];
+      const year = now.getFullYear();
+
+      // நேரத்தை format செய்தல் (AM/PM)
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      
+      hours = hours % 12;
+      hours = hours ? hours : 12; 
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      const dateString = `${dayName}, ${date} ${month} ${year} (நாள் ${kuralNumber}/1330)`;
+      const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+      document.getElementById("date-text").innerText = dateString;
+      document.getElementById("time-text").innerText = timeString;
+    }
+
+    // நேரத்தை உடனுக்குடன் புதுப்பிக்க 1 வினாடிக்கு ஒருமுறை இயங்கும்
+    setInterval(updateLiveTimer, 1000);
+    updateLiveTimer();
+
+    // 3. API மூலம் திருக்குறளை எடுத்து எழுதுதல்
+    fetch(`https://api-thirukkural.vercel.app/api?num=${kuralNumber}`)
+      .then(response => response.json())
+      .then(data => {
+        if(data && data.line1) {
+          document.getElementById("kural-line1").innerText = data.line1;
+          document.getElementById("kural-line2").innerText = data.line2;
+          document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> ${data.tam_exp}`;
+        }
+      })
+      .catch(error => {
+        console.log("API Error, using default text");
+      });
+  </script>
+
+</body>
+</html>
