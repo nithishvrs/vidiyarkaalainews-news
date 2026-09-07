@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Vidiyarkaalai News</title>
   <style>
@@ -121,12 +122,16 @@ section,
       height: 24px;
       margin-right: 15px;
       display: flex;
-      align-items: center;
+      /* align-items: center; */
     }
 
     .nav-links {
-      display: flex;
-      white-space: nowrap;
+      /* display: flex; */
+      padding-bottom: 10px;
+      padding-top: 10px;
+      justify-content: center; /* பொருட்களின் மையத்திற்கு கொண்டு வரும் */
+      align-items: center;     /* செங்குத்தாக (Vertically) மையப்படுத்தும் */
+      width: 100%;
     }
 
     .nav-item {
@@ -135,7 +140,7 @@ section,
       padding: 12px 15px;
       font-size: 15px;
       font-weight: bold;
-      display: inline-block;
+      /* display: inline-block; */
     }
 
     .nav-item:hover {
@@ -413,7 +418,7 @@ section,
     </div>
     <!-- Navbar -->
     <nav class="main-navbar">
-      <div class="nav-icons-group ">
+      <div class="nav-icons-group  flex justify-center items-center w-full">
         <button class="icon-btn" aria-label="Menu">
           <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
         </button>
@@ -422,21 +427,21 @@ section,
         </button> -->
       </div>
 
-      <!-- <a href="#" class="home-btn" onclick="showList()" aria-label="Home">
+      <a href="#id=arasiyal-section" class="home-btn" onclick="showList()" aria-label="Home">
         <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-      </a> -->
+      </a>
 
-      <div class="nav-links">
+      <div class="nav-links navbarcentryy">
         <a href="#arasiyal-section" class="nav-item">அரசியல்</a>
         <a href="#india-section" class="nav-item">இந்தியா</a>
         <a href="#tamilagam-section" class="nav-item">தமிழகம்</a>
         <a href="#cinima-section" class="nav-item">சினிமா</a>
         <a href="#vanigam-section" class="nav-item">வணிகம்</a>
         <a href="#" class="nav-item">கல்வி</a>
-        <a href="#" class="nav-item">ஆன்மீகம் ▼</a>
-        <a href="#" class="nav-item">மகளிர் ▼</a>
-        <a href="#" class="nav-item">வேலைவாய்ப்பு</a>
-        <a href="#district-section" class="nav-item">மாவட்டம் ▼</a>
+        <!-- <a href="#" class="nav-item">ஆன்மீகம் ▼</a> -->
+        <!-- <a href="#" class="nav-item">மகளிர் ▼</a> -->
+        <!-- <a href="#" class="nav-item">வேலைவாய்ப்பு</a> -->
+        <a href="#district-section" class="nav-item">மாவட்டம் </a>
       </div>
     </nav>
   </div>
@@ -455,7 +460,7 @@ section,
     
     <!-- VIEW 1: HOME CARD LIST -->
     <div id="list-view">
-      <div class="kural-card">
+      <div class="kural-card" id="kural-section">
     <div class="kural-image-container">
       <img 
         src="images/thiruvalluvar1.jpeg" 
@@ -797,6 +802,93 @@ section,
       </div>
     </div>
   </div>
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <!-- Col 1: About -->
+      <div class="footer-col">
+        <a href="/">
+    <img 
+      src="images/news-logo.jpg" 
+      alt="விடியற்காலை News Logo" 
+      class="footer-logo-img"
+    />
+  </a>
+        <p class="footer-about-text">
+          Vidiyarkaalai News is a premier Tamil news portal delivering real-time updates on Tamilagam, National news, Politics, Cinema, Sports, and Business directly to your screen.
+        </p>
+      </div>
+
+      <!-- Col 2: Popular Categories -->
+      <div class="footer-col">
+        <div class="col-title">Popular Categories</div>
+        <ul class="footer-links">
+          <li><a href="#">▸ இந்தியா</a></li>
+          <li><a href="#">▸ தமிழகம்</a></li>
+          <li><a href="#">▸ குற்றம்</a></li>
+          <li><a href="#">▸ உலகம்</a></li>
+          <li><a href="#">▸ வேலைவாய்ப்பு</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Quick Links -->
+      <div class="footer-col">
+        <div class="col-title">Links</div>
+        <ul class="footer-links">
+          <li><a href="#">▸ E-Paper</a></li>
+          <li><a href="#">▸ Privacy Policy</a></li>
+          <li><a href="#">▸ About us</a></li>
+          <li><a href="#">▸ Contact Us</a></li>
+          <li><a href="#">▸ Advertise with us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: App Download -->
+      <div class="footer-col">
+        <div class="col-title">Download Apps</div>
+        <div class="app-badges">
+          <a href="#" class="app-badge-btn">
+            <i class="fa-brands fa-google-play"></i>
+            <div>
+              <span>GET IT ON</span>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+          <a href="#" class="app-badge-btn">
+            <i class="fa-brands fa-apple"></i>
+            <div>
+              <span>Download on the</span>
+              <strong>App Store</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <div>Designed and Developed for Vidiyarkaalai News.</div>
+        <div>Vidiyarkaalai Cinema | Vidiyarkaalai Astrology</div>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
 
   <!-- NAVIGATION SCRIPT -->
   <script>
@@ -899,6 +991,9 @@ section,
       .catch(error => {
         console.log("API Error, using default text");
       });
+
+      
+      
   </script>
 
   <script type="module" src="auth.js"></script>
