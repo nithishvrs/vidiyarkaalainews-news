@@ -488,13 +488,17 @@ section,
    <!-- Banner Image Tag -->
 <!-- <img src="images/WhatsApp Image 2026-09-08 at 23.47.53.jpeg " alt="" width="1200" height="400" style="width: 45%; max-width: 1200px; height: auto; object-fit: contain;"> -->
   <!-- Banner Container -->
+<!-- Banner Container -->
 <div id="ad-container" class="banner-wrapper">
   
   <!-- Close Button -->
-  <button onclick="closeAd()" class="close-btn">✕</button>
+  <button onclick="closeAd(event)" class="close-btn" title="Close Ad">✕</button>
 
-  <!-- Banner Image -->
-  <img src="images/WhatsApp Image 2026-09-08 at 23.47.53.jpeg" alt="Shree Amman Pile Foundation Banner" class="responsive-banner">
+  <!-- WhatsApp Redirect Link with New Phone Number -->
+  <a href="https://wa.me/919884124114?text=Hi%20Shree%20Amman%20Pile%20Foundation,%20I%20need%20more%20details." target="_blank" class="ad-link">
+    <!-- Banner Image -->
+    <img src="images/WhatsApp Image 2026-09-08 at 23.47.53.jpeg" alt="Shree Amman Pile Foundation Banner" class="responsive-banner">
+  </a>
 
 </div>
 
@@ -502,25 +506,34 @@ section,
 <style>
   .banner-wrapper {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
     margin: 10px auto;
+    text-align: center;
     width: 100%;
   }
 
-  /* Desktop View (சின்னதாக இருக்கும்) */
+  .ad-link {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  /* Desktop View */
   .responsive-banner {
-    width: 450px; /* டெஸ்க்டாப்பில் சின்ன அளவு */
+    width: 450px;
     height: auto;
     display: block;
     border-radius: 6px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .responsive-banner:hover {
+    transform: scale(1.01);
   }
 
   .close-btn {
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: calc(50% - 215px);
     background-color: rgba(0, 0, 0, 0.75);
     color: #ffffff;
     border: none;
@@ -536,21 +549,27 @@ section,
     justify-content: center;
   }
 
-  /* Phone / Mobile View (நடுத்தர அளவாக 85% - 90% திரையை அடைக்கும்) */
+  /* Phone / Mobile View */
   @media (max-width: 768px) {
     .responsive-banner {
-      width: 85%; /* மொபைலில் மீடியம் அளவு */
+      width: 85%;
       max-width: 380px;
+    }
+
+    .close-btn {
+      right: 8%;
     }
   }
 </style>
 
 <!-- JavaScript Code -->
 <script>
-  function closeAd() {
+  function closeAd(event) {
+    event.stopPropagation();
+    event.preventDefault();
     document.getElementById('ad-container').style.display = 'none';
   }
-</script> 
+</script>
 
 
 
