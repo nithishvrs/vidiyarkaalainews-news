@@ -313,8 +313,8 @@
 }
 
 .icon-btn svg, .home-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 100px;
+  height: 100px;
   fill: #ffffff; /* Icon White Color */
 }
 
@@ -363,4 +363,152 @@
 .reporter_name{
   color:grey;
   font-weight: 600;
+}
+
+
+/* Base Style for Mobile View */
+.main-navbar {
+  display: flex !important;
+  align-items: center !important;
+  background-color: #2563eb !important;
+  padding: 0 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.nav-icons-group {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  padding-right: 8px !important;
+}
+
+.nav-links.navbarcentryy {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Mobile-la smooth scroll-kaga */
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-grow: 1 !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}
+
+.nav-links.navbarcentryy::-webkit-scrollbar {
+  display: none !important;
+}
+
+.home-btn,
+.nav-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  padding: 10px 14px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  flex-shrink: 0 !important;
+}
+
+.home-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: #ffffff !important;
+}
+
+/* Desktop View (Screen width 768px-ku mela irundha center-la varum) */
+@media (min-width: 768px) {
+  .nav-links.navbarcentryy {
+    justify-content: center !important; /* Items-a center-la align pannanum */
+  }
+}
+
+/* Base Style for Mobile View */
+.main-navbar {
+  display: flex !important;
+  align-items: center !important;
+  background-color: #2563eb !important;
+  padding: 0 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.nav-icons-group {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  padding-right: 8px !important;
+}
+
+.nav-links.navbarcentryy {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Mobile-la smooth scroll-kaga */
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-grow: 1 !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}
+
+.nav-links.navbarcentryy::-webkit-scrollbar {
+  display: none !important;
+}
+
+.home-btn,
+.nav-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  padding: 10px 14px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  flex-shrink: 0 !important;
+}
+
+.home-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: #ffffff !important;
+}
+
+/* Desktop View (Screen width 768px-ku mela irundha center-la varum) */
+@media (min-width: 768px) {
+  .nav-links.navbarcentryy {
+    justify-content: center !important; /* Items-a center-la align pannanum */
+  }
+}
+
+/* Home Button Link Styling */
+.home-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 12px !important;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  flex-shrink: 0 !important;
+}
+
+/* Home Icon SVG Force Size */
+.home-btn svg {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  fill: #ffffff !important;
+  display: block !important;
+}
+
+/* Hover Effect */
+.home-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 4px !important;
 }
