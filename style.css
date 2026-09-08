@@ -358,3 +358,9 @@
 .nav-links::-webkit-scrollbar {
   display: none;
 }
+
+/* reporter_name */
+.reporter_name{
+  color:grey;
+  font-weight: 600;
+}
