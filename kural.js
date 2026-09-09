@@ -67,3 +67,16 @@ fetch(`https://raw.githubusercontent.com/adithyabsk/Thirukkural-API/main/thirukk
     document.getElementById("kural-line2").innerText = "நற்றாள் தொழாஅர் எனின்.";
     document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> தூய்மையான அறிவு வடிவமாக இருக்கும் இறைவனின் திருவடிகளை வணங்காதவர் எனில், அவர் கற்ற கல்வியினால் எந்தப் பயனும் இல்லை.`;
   });
+
+
+
+  function openArticle(title, date, author, image, content) {
+    // "நீதி கிடைக்குமா..." என்ற வரியை மட்டும் Grey நிறத்தில் மாற்றுகிறது
+    let formattedTitle = title.replace(
+        'நீதி கிடைக்குமா.? கர்ப்பிணி பெண்ணின் இறப்பிற்கு.??', 
+        '<span style="color: #707070;">நீதி கிடைக்குமா.? கர்ப்பிணி பெண்ணின் இறப்பிற்கு.??</span>'
+    );
+
+    // Modal-ன் Heading element-க்கு innerHTML ஆக செட் செய்யவும்
+    document.getElementById('modal-heading').innerHTML = formattedTitle;
+}
