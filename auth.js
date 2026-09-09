@@ -45,23 +45,5 @@ window.googleLogin = function() {
 
 
 
-// clock
-        function updateClock() {
-            const now = new Date();
-            // தேதியை விரும்பிய ফরম্যাটে மாற்ற (உதாரணம்: Sunday, 06 Dec 2026)
-            const optionsDate = { weekday: 'long', year: 'numeric', month: 'short', day: '2-digit' };
-            const dateString = now.toLocaleDateString('en-GB', optionsDate);
-            // நேரத்தை மாற்ற (மணி, நிமிடம், வினாடி)
-            const timeString = now.toLocaleTimeString();
-            
-            // இரண்டையும் சேர்த்து டிஸ்ப்ளே செய்தல்
-            document.getElementById('liveClock').innerText = dateString + ' - ' + timeString;
-        }
-
-        // உடனே ஒருமுறை ரன் ஆகும்
-        updateClock();
-        
-        // ஒவ்வொரு வினாடிக்கும் (1000 ms) நேரம் அப்டேட் ஆகும்
-        setInterval(updateClock, 1000);
 
 
