@@ -63,9 +63,9 @@ fetch(`https://raw.githubusercontent.com/adithyabsk/Thirukkural-API/main/thirukk
   })
   .catch(error => {
     // Network இல்லையென்றால் குறள் #2-ஐ இயல்பாகக் காட்டுதல்
-    document.getElementById("kural-line1").innerText = "கற்றதனா லாய பயனென்கொல் வாலறிவன்";
-    document.getElementById("kural-line2").innerText = "நற்றாள் தொழாஅர் எனின்.";
-    document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> தூய்மையான அறிவு வடிவமாக இருக்கும் இறைவனின் திருவடிகளை வணங்காதவர் எனில், அவர் கற்ற கல்வியினால் எந்தப் பயனும் இல்லை.`;
+    document.getElementById("kural-line1").innerText = "மலர்மிசை ஏகினான் மாணடி சேர்ந்தார்";
+    document.getElementById("kural-line2").innerText = "நிலமிசை நீடுவாழ் வார்.";
+    document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> அன்பானவர்களின் மனதில் வாழ்கின்ற கடவுளின் திருவடிகளை எப்போதும் நினைப்பவர்கள், இந்தப் பூமியில் புகழோடும் மகிழ்ச்சியோடும் நெடுங்காலம் வாழ்வார்கள்.`;
   });
 
 
