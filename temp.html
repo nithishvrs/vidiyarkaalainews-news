@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>தினசரி திருக்குறள்</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .kural-content-container {
+      background: #ffffff;
+      border-left: 5px solid #0056b3;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 24px;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .kural-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 12px;
+    }
+
+    .badge {
+      background-color: #0056b3;
+      color: #ffffff;
+      padding: 6px 14px;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 15px;
+    }
+
+    .day-count {
+      background-color: #eaf4ea;
+      color: #2e7d32;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .kural-body {
+      margin-top: 10px;
+    }
+
+    .kural-line1, .kural-line2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 6px 0;
+      line-height: 1.5;
+    }
+
+    .kural-meaning {
+      margin-top: 18px;
+      font-size: 16px;
+      color: #444444;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      padding: 12px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="kural-content-container">
+    <div class="kural-header">
+      <span class="badge" id="kural-number-badge">குறள் #2</span>
+
+      <!-- Live Date & Timer Badge -->
+      <span class="day-count" id="day-count-badge">
+        <span id="date-text">ஏற்றப்படுகிறது...</span>
+        <span id="time-text"></span>
+      </span>
+    </div>
+
+    <div class="kural-body">
+      <p class="kural-line1" id="kural-line1">ஏற்றப்படுகிறது...</p>
+      <p class="kural-line2" id="kural-line2"></p>
+      <p class="kural-meaning" id="kural-meaning">
+        <strong>பொருள்:</strong> ஏற்றப்படுகிறது...
+      </p>
+    </div>
+  </div>
+
+  <!-- JavaScript கோப்பு இணைப்பு -->
+  <script src="kural.js"></script>
+
+</body>
+</html>
