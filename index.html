@@ -624,7 +624,7 @@ section,
             <div class="meta-line">By <span class="author">VK-News</span> &nbsp; Sep 09, 2026 11:15 IST</div>
           </article>
 
-          <article class="news-card" onclick="openArticle('யார் தன்னை கொச்சைப்படுத்தினாலும், வரலாறு மாறாது மு.க.ஸ்டாலின்', 'Sep 10, 2026 09:46 IST', '@vknews', 'images/WhatsApp Image 2026-09-10 at 10.45.07 (1).jpeg', 'வரலாறு மாறாது மு.க.ஸ்டாலின்')">
+          <article class="news-card" onclick="openArticle('யார் தன்னை கொச்சைப்படுத்தினாலும், வரலாறு மாறாது மு.க.ஸ்டாலின்', 'Sep 10, 2026 09:46 IST', '@vknews', 'images/WhatsApp Image 2026-09-10 at 10.45.07 (1).jpeg', 'வரலாறு மாறாது மு.க.ஸ்டாலின்', 'imagevidssave.com l 720P.mp4')">
             <div class="thumb-wrapper">
               <img src="images/WhatsApp Image 2026-09-10 at 10.52.00.jpeg" alt="News Image">
             </div>
@@ -1359,6 +1359,23 @@ section,
 
   <!-- NAVIGATION SCRIPT -->
   <script>
+    function openArticle(title, date, author, image, content, video) {
+  // Modal / Detailed View elements-ஐ set செய்ய:
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalDate').innerText = date;
+  document.getElementById('modalContent').innerText = content;
+
+  const videoElement = document.getElementById('modalVideo');
+  
+  if (video) {
+    videoElement.src = video;
+    videoElement.style.display = 'block'; // Video காட்டுவதற்கு
+  } else {
+    videoElement.style.display = 'none';  // Video இல்லை என்றால் மறைக்க
+  }
+}
+
+
     function openArticle(title, time, author, imageSrc, content) {
       document.getElementById('d-title').innerText = title;
       document.getElementById('d-time').innerText = time;
