@@ -63,9 +63,9 @@ fetch(`https://raw.githubusercontent.com/adithyabsk/Thirukkural-API/main/thirukk
   })
   .catch(error => {
     // Network இல்லையென்றால் குறள் #2-ஐ இயல்பாகக் காட்டுதல்
-    document.getElementById("kural-line1").innerText = "மலர்மிசை ஏகினான் மாணடி சேர்ந்தார்";
-    document.getElementById("kural-line2").innerText = "நிலமிசை நீடுவாழ் வார்.";
-    document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> அன்பானவர்களின் மனதில் வாழ்கின்ற கடவுளின் திருவடிகளை எப்போதும் நினைப்பவர்கள், இந்தப் பூமியில் புகழோடும் மகிழ்ச்சியோடும் நெடுங்காலம் வாழ்வார்கள்.`;
+    document.getElementById("kural-line1").innerText = "வேண்டுதல் வேண்டாமை இலானடி சேர்ந்தார்க்கு";
+    document.getElementById("kural-line2").innerText = "யாண்டும் இடும்பை இல.";
+    document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> விருப்பு வெறுப்பு இல்லாத இறைவனின் திருவடிகளைச் பொருந்தி நினைப்பவருக்கு, எக்காலத்திலும் எவ்விதத் துன்பமும் உண்டாவதில்லை..`;
   });
 
 
