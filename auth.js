@@ -44,6 +44,70 @@ window.googleLogin = function() {
 };
 
 
+let currentSlideIndex = 0;
+
+function openArticle(title, time, author, imageSrc1, imageSrc2, content, video) {
+  document.getElementById('d-title').innerText = title;
+  document.getElementById('d-time').innerText = time;
+  document.getElementById('d-author').innerText = author;
+  document.getElementById('d-content').innerText = content;
+
+  // Reset Slider Position
+  currentSlideIndex = 0;
+  document.getElementById('slider-track').style.transform = 'translateX(0%)';
+
+  var img1 = document.getElementById('d-image');
+  var img2 = document.getElementById('d-image2');
+  var bgBlur = document.getElementById('d-bg-blur');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  // Set First Image & Blur Background
+  if (img1) img1.src = imageSrc1;
+  if (bgBlur) bgBlur.src = imageSrc1;
+
+  // 2வது படம் இருந்தால் Slider Arrows காட்டும், இல்லையென்றால் மறைக்கும்
+  if (imageSrc2 && imageSrc2 !== 'null') {
+    img2.src = imageSrc2;
+    img2.style.display = 'block';
+    prevBtn.style.display = 'block';
+    nextBtn.style.display = 'block';
+  } else {
+    img2.style.display = 'none';
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+  }
+
+  document.getElementById('list-view').style.display = 'none';
+  document.getElementById('detail-view').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+// Next / Previous Click Function
+function moveSlide(direction) {
+  const track = document.getElementById('slider-track');
+  currentSlideIndex += direction;
+
+  if (currentSlideIndex > 1) {
+    currentSlideIndex = 0;
+  } else if (currentSlideIndex < 0) {
+    currentSlideIndex = 1;
+  }
+
+  track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+
+  // Change Background Blur according to active image
+  var img1 = document.getElementById('d-image').src;
+  var img2 = document.getElementById('d-image2').src;
+  document.getElementById('d-bg-blur').src = (currentSlideIndex === 0) ? img1 : img2;
+}
+
+function showList() {
+  document.getElementById('detail-view').style.display = 'none';
+  document.getElementById('list-view').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
 
 
 
