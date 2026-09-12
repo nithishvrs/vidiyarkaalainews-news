@@ -63,9 +63,9 @@ fetch(`https://raw.githubusercontent.com/adithyabsk/Thirukkural-API/main/thirukk
   })
   .catch(error => {
     // Network இல்லையென்றால் குறள் #2-ஐ இயல்பாகக் காட்டுதல்
-    document.getElementById("kural-line1").innerText = "வேண்டுதல் வேண்டாமை இலானடி சேர்ந்தார்க்கு";
-    document.getElementById("kural-line2").innerText = "யாண்டும் இடும்பை இல.";
-    document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> விருப்பு வெறுப்பு இல்லாத இறைவனின் திருவடிகளைச் பொருந்தி நினைப்பவருக்கு, எக்காலத்திலும் எவ்விதத் துன்பமும் உண்டாவதில்லை..`;
+    document.getElementById("kural-line1").innerText = "இருள்சேர் இருவினையும் சேரா இறைவன்";
+    document.getElementById("kural-line2").innerText = "பொருள்சேர் புகழ்புரிந்தார் மாட்டு.";
+    document.getElementById("kural-meaning").innerHTML = `<strong>பொருள்:</strong> இறைவனின் மெய்யான புகழை விரும்பிப் போற்றுபவர்களிடம், அறியாமையால் விளையும் நல்வினை, தீவினை ஆகிய இருவகை வினைகளும் (நன்மை, தீமை தரும் கர்ம வினைகள்) சேருவதில்லை`;
   });
 
 
